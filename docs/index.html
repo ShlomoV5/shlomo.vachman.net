@@ -4,7 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .viewport {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            scroll-snap-type: x mandatory;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            min-width: 100vw;
+            min-height: 100vh;
+            flex: none;
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 1rem;
+            padding: 2rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+        }
+
+        .project {
+            margin-bottom: 20px;
+        }
+
+        .project h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .project a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <!-- Main Container -->
@@ -78,6 +173,39 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const sections = document.querySelectorAll('.section');
+        const options = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px"
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        document.addEventListener("wheel", function(event) {
+            if (event.deltaY > 0) {
+                document.querySelector('.viewport').scrollBy({
+                    left: window.innerWidth,
+                    behavior: 'smooth'
+                });
+            } else {
+                document.querySelector('.viewport').scrollBy({
+                    left: -window.innerWidth,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    </script>
 </body>
 </html>
