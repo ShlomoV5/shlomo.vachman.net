@@ -2,22 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Page Website</title>
-    <link rel="stylesheet" href="design.css">
+    <title>Shlomo.Vachman.Net</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="nav-arrows">
-        <div class="arrow-container left-container" onclick="navigate(-1)">
-            <div class="arrow left">&#9664;</div>
-        </div>
-        <div class="arrow-container right-container" onclick="navigate(1)">
-            <div class="arrow right">&#9654;</div>
-        </div>
+    <div id="Welcome" class="tabcontent">
+      <h1>Welcome</h1>
+      <p>Welcome to my website.</p>
     </div>
-    <div class="section welcome">Welcome</div>
-    <div class="section about-me">About Me</div>
-    <div class="section project-examples">Project Examples</div>
+    
+    <div id="About" class="tabcontent">
+      <h1>About</h1>
+      <p>About me.</p>
+    </div>
+    
+    <div id="Projects" class="tabcontent">
+      <h1>Projects</h1>
+      <p>Here you can see my project.</p>
+    </div>
     <script src="script.js"></script>
+    <button class="tablink" onclick="openSection('Welcome', this, 'red')" id="defaultOpen">Welcome</button>
+    <button class="tablink" onclick="openSection('About', this, 'green')" id="defaultOpen">About</button>
+    <button class="tablink" onclick="openSection('Projects', this, 'yellow')" id="defaultOpen">Projects</button>
 </body>
 </html>
