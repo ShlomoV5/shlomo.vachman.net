@@ -22,14 +22,17 @@
   display: none;
   padding: 50px;
   text-align: center;
-  height: 90%;
+  height: 100vh;
 }
 
 /* Set default styles for buttons */
 .buttons {
   padding: 50px;
   text-align: center;
-  height: 10%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
 }
 
 
