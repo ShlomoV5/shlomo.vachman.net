@@ -22,7 +22,16 @@
   display: none;
   padding: 50px;
   text-align: center;
+  height: 90%;
 }
+
+/* Set default styles for buttons */
+.buttons {
+  padding: 50px;
+  text-align: center;
+  height: 10%;
+}
+
 
 /* Style each tab content individually */
 #Welcome {background-color:red;}
