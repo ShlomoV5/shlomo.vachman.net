@@ -20,13 +20,15 @@
       <h1>Projects</h1>
       <p>Here you can see my project.</p>
     </div>
-    <script src="script.js"></script>
-    <button class="tablink" onclick="openSection('Welcome', this, 'red')" id="defaultOpen">Welcome</button>
-    <button class="tablink" onclick="openSection('About', this, 'green')">About</button>
-    <button class="tablink" onclick="openSection('Projects', this, 'yellow')">Projects</button>
-    <script>
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
-    </script>
+    <div class="buttons">
+        <script src="script.js"></script>
+        <button class="tablink" onclick="openSection('Welcome', this, 'red')" id="defaultOpen">Welcome</button>
+        <button class="tablink" onclick="openSection('About', this, 'green')">About</button>
+        <button class="tablink" onclick="openSection('Projects', this, 'yellow')">Projects</button>
+        <script>
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+        </script>
+    </div>
 </body>
 </html>
