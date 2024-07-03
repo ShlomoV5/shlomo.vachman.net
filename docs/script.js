@@ -2,6 +2,7 @@ let currentSection = 0;
 const sections = document.querySelectorAll('.section');
 
 function navigate(direction) {
+    console.log("Clicked!");
     currentSection += direction;
     if (currentSection < 0) {
         currentSection = sections.length - 1;
