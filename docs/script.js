@@ -1,14 +1,23 @@
-let currentSection = 0;
-const sections = document.querySelectorAll('.section');
+function openSection(sectionName, elmnt, color) {
+  // Hide all elements with class="tabcontent" by default */
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
 
-function navigate(direction) {
-    currentSection += direction;
-    if (currentSection < 0) {
-        currentSection = sections.length - 1;
-    } else if (currentSection >= sections.length) {
-        currentSection = 0;
-    }
-    sections.forEach((section, index) => {
-        section.style.transform = `translateX(${-100 * currentSection}%)`;
-    });
+  // Remove the background color of all tablinks/buttons
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+
+  // Show the specific tab content
+  document.getElementById(sectionName).style.display = "block";
+
+  // Add the specific color to the button used to open the tab content
+  elmnt.style.backgroundColor = color;
 }
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
