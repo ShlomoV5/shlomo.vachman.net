@@ -18,6 +18,3 @@ function openSection(sectionName, elmnt, color) {
   // Add the specific color to the button used to open the tab content
   elmnt.style.backgroundColor = color;
 }
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
